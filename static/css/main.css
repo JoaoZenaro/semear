@@ -1,0 +1,346 @@
+/* home screen splash ------------------------------- */
+.headline {
+    top: 0;
+    z-index: -2;
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 350px;
+    background:
+    linear-gradient(
+    rgba(0, 0, 0, 0.7), 
+    rgba(0, 0, 0, 0)
+    ),url(https://images.unsplash.com/photo-1593113598332-cd288d649433?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470);
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-txt-color);
+}
+
+/* Three buttons in the homescreen ------------------- */
+.splashBox{
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.splashBox div{
+    margin: 5vh;
+    color: var(--main-txt-color);
+    text-align: center;
+}
+.splashBox:nth-child(1){
+    background-color: #EE84FF;
+}
+.splashBox:nth-child(2){
+    background-color: #51a5a4;
+}
+.splashBox:nth-child(3){
+    background-color: #83388f;
+}
+.splashBox:hover{
+    -webkit-box-shadow:inset 0px 0px 0px 5px #fff;
+    -moz-box-shadow:inset 0px 0px 0px 5px #fff;
+    box-shadow:inset 0px 0px 0px 5px #fff;
+}
+
+/* ----------------------------------------------------- */
+
+.ttMain{
+    margin-top: 5vh;
+    font-family: 'DesignerRDW00-Regular';
+    text-align: center;
+    font-size: 4rem;
+}
+
+#projetosMain{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.projeto{
+    display: flex;
+    text-align: justify;
+    width: 100%;
+}
+
+.projeto:nth-child(2n){
+    flex-direction: column-reverse;
+    align-items: center;
+    display: block;
+}
+
+.projeto:nth-child(2n) .projetoImgBorder{
+    left: 7vh;
+    border: 4px solid #51a5a4;
+}
+
+.projeto:nth-child(2n) .projetoImgOuter{
+    float: right;
+    margin-left: 2vw;
+}
+
+.projeto:nth-child(2n) button{
+    background-color: #51a5a4;
+}
+
+.projetoConteudo{
+    width: 60vh;
+    padding: 10vh 0 0 2vw;
+}
+
+.projetoConteudo h1{
+    margin-bottom: 5vh;
+}
+
+.projetoConteudo p{
+    margin-bottom: 5vh;
+}
+
+.projetoConteudo a, .pilares a, .publicacoesMain>a, .juntese a{
+    text-decoration: none;
+    padding: 2vh 3vw 2vh 3vw;
+    border-radius: 5vh;
+    background-color: #83388f;
+    color: white;
+    font-weight: bold;
+    transition: 400ms cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.projetoConteudo a:hover, .pilares a:hover, .publicacoesMain a:hover, .juntese a:hover{
+    filter: brightness(120%);
+}
+
+.projetoImgOuter {
+    margin-top: 10vh;
+    height: 35vh;
+    width: 30vh;
+    position: relative;
+}
+
+.projetoImgOuter img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.projetoImgBorder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border: 4px solid #83388f;
+    top: -5vh;
+    left: -7vh;
+    z-index: -2;
+}
+
+.reveal{
+    position: relative;
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal.active{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.depoimentos{
+    margin-top: 8vh;
+    width: 100%;
+    height: 100vh;
+}
+
+.carousel, .carousel-inner, .carousel-item, .carousel-item img{
+    width: 100%;
+    height: 100%;    
+}
+
+.ttDep{
+    position: absolute;
+    transform: translateY(60px);
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.dep-inner{
+    position: absolute;
+    top: 0;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    height: 100%;
+    margin: 0 20vw 0 20vw;
+    width: 60vw;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.dep-inner div{
+    width: 60vw;
+    word-wrap: break-word;
+    font-size: 2vh;
+}
+
+.dep-inner p:nth-child(2){
+    margin-top: 2vh;
+}
+
+.carousel-item img{
+    object-fit: cover;
+    background-size: cover;
+    filter: brightness(40%);
+}
+
+.pilares{
+    text-align: center;
+}
+
+.pilares h1{
+    margin: 5vh 0 5vh 0;
+    font-family: 'DesignerRDW00-Regular';
+    text-align: center;
+    font-size: 4rem;
+}
+
+.containerPilares{
+    margin: 0 20vw 0 20vw;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.linePilares{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    z-index: -1;
+    border-top: 5px #313131 dotted;
+    width: 50vw;
+}
+
+.colunaPilares p{
+    padding: 2vh 5vh 5vh 5vh;
+}
+
+@media screen and (max-width: 1300px){
+    .containerPilares{
+        margin: 0;
+    }
+    .colunaPilares{
+        padding: 0 1vh 0 1vh;
+    }
+    .colunaPilares p{
+        padding: 2vh 0 5vh 0;
+    }
+    .linePilares{
+        width: 60vw;
+    }
+}
+
+.colunaPilares img{
+    width: 20vh;
+    height: 20vh;
+    object-fit: cover;
+    background-position: cover;
+    border-radius: 50%;
+}
+
+.publicacoesMain{
+    text-align: center;
+    margin-top: 5vh;
+    background-color: #f0f0f0;
+    padding: 5vh 0 5vh 0;
+}
+
+.ttPub{
+    margin-top: 0;
+}
+
+.album .container .row{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.card-img-top{
+    object-fit: cover;
+}
+
+.album a{
+    color: #313131;
+    text-decoration: none;
+    transition: 300ms;
+    margin: 0 5vh 0 5vh;
+}
+.album a:hover{
+    color: #121212;
+}
+.postTitle{
+    font-size: 2rem;
+}
+.album .card{
+    height: 100%;
+    margin-bottom: 5vh;
+}
+
+.juntese{
+    display: flex;
+    text-align: center;
+}
+
+.juntese div{
+    width: 50vw;
+    height: 60vh;
+}
+
+.juntese img{
+    width: 50vw;
+    height: 60vh;
+    left: 50%;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 800px) {
+    .projeto{
+        display: block !important;
+    }
+    .projetoImgOuter{
+        margin: 10vh auto 5vh auto;
+    }
+    .projetoConteudo{
+        width: 100%;
+        padding: 0 5vh 0 5vh;
+    }
+    .projetoConteudo a, .pilares a, .publicacoesMain>a, .juntese a{
+        padding: 2vh 5vh 2vh 5vh;
+    }
+    .projeto:nth-child(2n) .projetoImgOuter{
+        float: none;
+        margin: 10vh auto 5vh auto;
+    }
+    .containerPilares{
+        display: block;
+    }
+    .colunaPilares p{
+        padding: 5vh 0 5vh 0;
+    }
+    .linePilares{
+        display: none;
+    }
+    .juntese img{
+        display: none;
+    }
+    .juntese div{
+        width: 100vw;
+    }
+}

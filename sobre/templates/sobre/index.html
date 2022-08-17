@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="headerBg">
+    <h1>Sobre</h1>
+</div>
+
+<div class="textoSobre">
+{{sobre.body|safe}}
+</div>
+
+<h1 id="ttVoluntarios">VOLUNTARIOS</h1>
+
+<section class="voluntarios">
+    {% for vol in voluntarios %}
+    <div class="voluntario">
+        <img src="/media/{{vol.imagem}}">
+        <h2>{{vol.nome}}</h2>
+        <p>{{vol.ocupacao}}</p>
+    </div>
+    {% endfor %}
+</section>
+                                                                                                              
+{% endblock %}
