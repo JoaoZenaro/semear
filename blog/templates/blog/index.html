@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="headerBg">
+  <h1>Publicações</h1>
+</div>
+
+<style>
+  .album .container .row{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+
+  .card-img-top{
+    object-fit: cover;
+  }
+
+  a{
+    color: #313131;
+    text-decoration: none;
+    transition: 300ms;
+  }
+  a:hover{
+    color: #121212;
+  }
+  .postTitle{
+    font-size: 2rem;
+  }
+  .card{
+    cursor: pointer;
+  }
+
+</style>
+<main> 
+
+    <div class="album py-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+          
+          {% for post in posts %}
+          <div class="col" onclick="location.href='/publicacoes/{{post.pk}}';">
+            <div class="card shadow-sm">
+              <img class="card-img-top" width="100%" height="225" src="{{post.thumbnail.url}}" alt="">
+
+              <div class="card-body">
+                <h1 class="postTitle">{{post.title}}</h1>
+                <p class="card-text">{{post.body|safe|truncatewords:25|slice:"-4"}}...</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <small class="text-muted">{{post.views}} Visualizações</small>
+                  </div>
+                  <small class="text-muted">{{post.created_at|date:'d, M Y'}}</small>
+                </div>
+              </div>   
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="headerBg">
+    <h1>{{contas.title}}</h1>
+</div>
+
+<section class="contas conta">
+    {{contas.body|safe}}
+</section>
+
+
+<section class="image-grid">
+    {% for img in contas.imagens_set.all %}
+    <a href="/media/{{img.img}}">
+        <img class="galleryImg" src="/media/{{img.img}}" alt="">
+    </a>
+    {% endfor %}
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="headerBg">
+    <h1>{{projeto.title}}</h1>
+</div>
+
+<main class="postBody">
+    {{projeto.body|safe}}
+</main>
+
+{% if not projeto.logo.all %}
+
+{% else %}
+    <h1 class="ttPatrocinios">PATROCINADORES</h1>
+    <section class="patrocinios">
+        {% for parc in projeto.logo.all %}
+        <div class="patrocinador">
+            <img class="galleryImg" src="/media/{{parc.img}}" alt="">
+            <h3>{{parc.name}}</h3>
+        </div>
+        {% endfor %}
+    </section>
+{% endif %}
+
+<section class="image-grid">
+    {% for img in projeto.imagens_set.all %}
+    <a href="/media/{{img.img}}">
+        <img loading="lazy" class="galleryImg" src="/media/{{img.img}}" alt="">
+    </a>
+    {% endfor %}
+</section>
+
+{% endblock %}

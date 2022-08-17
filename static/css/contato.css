@@ -1,0 +1,35 @@
+.contatoHeader{
+    margin: 0;
+}
+
+.pgContato{
+    height: 60vh;
+    display: flex;
+}
+
+.pgContato>div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+}
+
+.pgContato>div>div{
+    width: 30vw;
+    text-align: center;
+}
+
+.pgContato img{
+    left: 50%;
+    width: 50%;
+    height: 60vh;
+    object-fit: cover;
+    background-position: center;
+    position: absolute;
+}
+
+@media only screen and (max-width: 800px) {
+    .pgContato img{
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="headerBg">
+    <h1>Prestação de contas</h1>
+</div>
+
+<section class="contas">
+    <ul>
+        {% for conta in contas %}
+            <li><a href="{{conta.id}}">{{conta.title}}</a> - <span>{{conta.created_at|date:'d, M Y'}}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

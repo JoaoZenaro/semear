@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div id="headlineOverlay"></div>
+<section class="headline">
+    <h1 style="font-weight: 900; font-size: 4vh;">Ajudando Crianças & Famílias<br>no Combate à Extrema Pobreza</h1>
+</section>
+
+<div class="container-fluid">
+    <div class="row">
+        <a href="/sobre/" class="col-lg-4 splashBox">
+            <div>
+                <h2>Nossa Missão</h2>
+                <p>Objetivos, visão & compromissos</p>
+            </div>
+        </a>
+        
+        <a href="/contas/" class="col-lg-4 splashBox">
+            <div>
+                <h2>Transparência</h2>
+                <p>Relatórios mensais</p>
+            </div>
+        </a>
+        <a href="/contato/" class="col-lg-4 splashBox">
+            <div>
+                <h2>Seja Voluntário</h2>
+                <p>Participe, ou doe</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h1 class="ttMain">PROJETOS</h1>
+<section id="projetosMain">
+    <div style="display: block;">
+        {% for projeto in projectList%}
+        <div class="projeto reveal">
+            <div class="projetoImgOuter">
+                <img src="/media/{{projeto.thumbnail}}" alt="">
+                <div class="projetoImgBorder"></div>
+            </div>
+            <div class="projetoConteudo">
+                <h1>{{projeto.title}}</h1>
+                {{projeto.summary|safe}}
+                <a href="/projeto/{{projeto.id}}">Saiba mais</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+<h1 class="ttMain ttDep">DEPOIMENTOS</h1>
+<section class="depoimentos">
+<div id="carouselControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    
+    <div class="carousel-item active">
+    <img class="d-block" src="/media/{{dep1.imagem}}">
+        <div class="dep-inner">
+            <div>
+                {{dep1.body|safe}}
+            </div>
+        </div>
+    </div>
+
+    {% for dep in deps %}
+    <div class="carousel-item">
+        <img class="d-block" src="/media/{{dep.imagem}}">
+        <div class="dep-inner">
+            <div>
+              {{dep.body|safe}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+  </div>
+  <a class="carousel-control-prev" data-bs-target="#carouselControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" data-bs-target="#carouselControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+</section>
+
+<section class="pilares">
+    <h1>NOSSA ATUAÇÃO</h1>
+    <div class="linePilares"></div>
+    <div class="containerPilares">
+        <div class="colunaPilares">
+            <img src="https://source.unsplash.com/random?1" alt="">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore facilis sunt, similique deserunt atque aut enim voluptatum optio debitis incidunt perferendis nisi aspernatur, natus obcaecati magni veritatis quas autem rerum.</p>
+        </div>
+        <div class="colunaPilares">
+            <img src="https://source.unsplash.com/random?2" alt="">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore facilis sunt, similique deserunt atque aut enim voluptatum optio debitis incidunt perferendis nisi aspernatur, natus obcaecati magni veritatis quas autem rerum.</p>
+        </div>
+        <div class="colunaPilares">
+            <img src="https://source.unsplash.com/random?3" alt="">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore facilis sunt, similique deserunt atque aut enim voluptatum optio debitis incidunt perferendis nisi aspernatur, natus obcaecati magni veritatis quas autem rerum.</p>
+        </div>
+        <div class="colunaPilares">
+            <img src="https://source.unsplash.com/random?4" alt="">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore facilis sunt, similique deserunt atque aut enim voluptatum optio debitis incidunt perferendis nisi aspernatur, natus obcaecati magni veritatis quas autem rerum.</p>
+        </div>
+    </div>
+    <a href="/doacoes/">Apoie</a>
+</section>
+
+<section class="publicacoesMain">
+    <h1 class="ttMain ttPub">PUBLICAÇÕES</h1>
+    
+    <div class="album py-5">
+        <div class="container">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+            
+            {% for post in posts %}
+            <div class="col" onclick="location.href='/publicacoes/{{post.pk}}';">
+            <div class="card shadow-sm" style="cursor: pointer;">
+                <img class="card-img-top" width="100%" height="225" src="{{post.thumbnail.url}}" alt="">
+    
+                <div class="card-body">
+                <h1 class="postTitle">{{post.title}}</h1>
+                {{post.body|safe|truncatewords:25|slice:"-4"}}...
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <small class="text-muted">{{post.views}} Visualizações</small>
+                    </div>
+                    <small class="text-muted">{{post.created_at|date:'d, M Y'}}</small>
+                </div>
+                </div>   
+            </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        </div>
+    </div>
+    <a href="/publicacoes/">Ver mais</a>
+</section>
+
+<section class="juntese">
+    <div>
+        <h2 class="ttMain" style="margin-top: 20vh">JUNTE-SE A NÓS!</h2>
+        <p style="margin: 0 5vh 5vh 5vh;">Ajude crianças e famílias a saírem da extrema pobreza</p>
+        <a href="/contato/">Entre em contato</a>
+    </div>
+    <img src="https://source.unsplash.com/random?92" alt="">
+</section>
+
+<style>footer{margin: 0;}</style>
+
+{% endblock %}  
