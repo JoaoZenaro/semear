@@ -1,0 +1,22 @@
+.contatoHeader{
+    margin: 0;
+}
+
+.pgContato{
+    height: 100vh;
+}
+
+.pgContato img{
+    width: 50vw;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    position: relative;
+    float: right;
+}
+
+@media only screen and (max-width: 800px) {
+    .pgContato img{
+        display: none;
+    }
+}
